@@ -97,8 +97,8 @@
 :root[data-theme="contrast"] .pkey.black{ background:#000000; outline:1px solid #F7F7F7; }
 :root[data-theme="contrast"] .pkey.active.white,
 :root[data-theme="contrast"] .pkey.active.black{ background:var(--accent); }
-:root[data-theme="contrast"] .abc-notation svg line,
-:root[data-theme="contrast"] .abc-notation svg path{ stroke-width:1.1px; }
+:root[data-theme="contrast"] .abc-notation svg:not([viewBox]) line,
+:root[data-theme="contrast"] .abc-notation svg:not([viewBox]) path{ stroke-width:1.1px; }
 /* Focus : double anneau jaune + noir, lisible sur fond clair comme sombre */
 :root[data-theme="contrast"] a:focus-visible,
 :root[data-theme="contrast"] button:focus-visible,
@@ -128,7 +128,7 @@ button{ font-family:inherit; }
 .abc-notation svg line, .abc-notation svg ellipse, .abc-notation svg polygon{
   fill:var(--fg) !important; stroke:var(--fg) !important;
 }
-.abc-notation svg line, .abc-notation svg path{ stroke-width:0.75px; }
+.abc-notation svg:not([viewBox]) line, .abc-notation svg:not([viewBox]) path{ stroke-width:0.75px; }
 /* Le bouton "Écouter" n'est jamais placé dans le conteneur de la portée : il est inséré juste
    après, comme un bloc totalement séparé, pour ne jamais pouvoir être recouvert par le SVG. */
 .abc-play-btn{

@@ -16,7 +16,7 @@ import{a as f}from"./chunks/chunk-WSUMZ6U7.js";import"./chunks/chunk-IHRIUEAN.js
     </section>`});s(/^#\/cours$/,function(){o.innerHTML=`
     ${c("#/","Accueil")}
     <div class="section-head"><h2>Cours &amp; le\xE7ons</h2><p>Les notions essentielles pour lire une partition, expliqu\xE9es simplement et illustr\xE9es.</p></div>
-    <div class="grid">${g.map(b).join("")}</div>`});s(/^#\/cours\/([\w-]+)$/,function(t){let i=null,n=!1;return o.innerHTML='<p style="padding:24px 0">Chargement de la le\xE7on\u2026</p>',import("./chunks/lecon-RVNJK5D7.js").then(E=>{n||(i=E.renderLecon(o,t))}).catch(()=>{o.innerHTML="<p>La le\xE7on n\u2019a pas pu \xEAtre charg\xE9e. V\xE9rifiez la connexion puis r\xE9essayez.</p>"}),()=>{n=!0,i&&i()}});s(/^#\/jeux$/,function(){o.innerHTML=`
+    <div class="grid">${g.map(b).join("")}</div>`});s(/^#\/cours\/([\w-]+)$/,function(t){let i=null,n=!1;return o.innerHTML='<p style="padding:24px 0">Chargement de la le\xE7on\u2026</p>',import("./chunks/lecon-4DENQQE2.js").then(E=>{n||(i=E.renderLecon(o,t))}).catch(()=>{o.innerHTML="<p>La le\xE7on n\u2019a pas pu \xEAtre charg\xE9e. V\xE9rifiez la connexion puis r\xE9essayez.</p>"}),()=>{n=!0,i&&i()}});s(/^#\/jeux$/,function(){o.innerHTML=`
     ${c("#/","Accueil")}
     <div class="section-head"><h2>Jeux de solf\xE8ge</h2><p>Huit fa\xE7ons de s'entra\xEEner, du plus calme au plus rapide.</p></div>
     <div class="grid">${r.map(p).join("")}</div>`});s(/^#\/jeux\/([\w-]+)$/,function(t){let i=r.find(n=>n.id===t);o.innerHTML=i?v(i.title,4,"#/jeux","Tous les jeux"):"<p>Jeu introuvable.</p>"});s(/^#\/outils$/,function(){o.innerHTML=`

@@ -325,3 +325,8 @@ input[type=range]{ width:100%; accent-color: var(--accent-deep); margin:18px 0; 
 .progress-pill{ flex:0 0 auto; border:1px solid var(--rule); border-radius:12px; padding:12px 18px; background:var(--bg-2); min-width:130px; }
 .progress-pill b{ display:block; font-family:'Fraunces',serif; font-size:1.4rem; }
 .progress-pill span{ font-size:.78rem; color:var(--fg-soft); }
+
+/* ---- Ajouts de la nouvelle application (le reste de ce fichier est repris tel quel de l'actuelle) ---- */
+/* Les partitions de Scorsaire sont des SVG avec un viewBox : on leur garde leur taille naturelle (largeur posée en --w par le code).
+   L'ancienne règle « width:100% » élargissait seulement la zone de dessin des SVG d'abcjs, qui n'avaient pas de viewBox, sans agrandir le dessin. */
+.abc-notation svg[viewBox]{ width:var(--w, auto) !important; max-width:100%; height:auto !important; }

@@ -1,13 +1,14 @@
 // Service worker de l'application Solfège. Le numéro de version et la liste des fichiers sont ajoutés par tools/build-app.mjs.
 //  - le code, la feuille de style, les polices et l'icône sont pré-chargés : l'application s'ouvre sans réseau ;
 //  - les SoundFonts (hébergées sur GitHub) sont gardées dans un cache à part, conservé d'une version à l'autre : après le premier ▶, le son riche marche aussi hors-ligne.
-const VERSION = '31b3ec20';
+const VERSION = '0895ff37';
 const CACHE = `solfege-${VERSION}`;
 const SONS = 'solfege-sons';
-const PRECACHE = ["./","./index.html","./main.js?v=31b3ec20","./app.css?v=31b3ec20","./manifest.json","./icon.svg","./fonts/Inter-Variable-latin.woff2","./fonts/Fraunces-wght-normal.woff2","./fonts/Fraunces-wght-italic.woff2","./chunks/chunk-2CNB3HXA.js","./chunks/chunk-APKYCA7B.js","./chunks/chunk-IHRIUEAN.js","./chunks/chunk-WSUMZ6U7.js","./chunks/controle-XF67CAVZ.js","./chunks/jeux-DGVME7TD.js","./chunks/lecon-FB4LLH63.js","./chunks/sound-ILNNXXEU.js"];
+const PRECACHE = ["./","./index.html","./main.js?v=0895ff37","./app.css?v=0895ff37","./manifest.json","./icon.svg","./fonts/Inter-Variable-latin.woff2","./fonts/Fraunces-wght-normal.woff2","./fonts/Fraunces-wght-italic.woff2","./chunks/chunk-2CNB3HXA.js","./chunks/chunk-APKYCA7B.js","./chunks/chunk-IHRIUEAN.js","./chunks/chunk-WSUMZ6U7.js","./chunks/controle-XF67CAVZ.js","./chunks/jeux-DGVME7TD.js","./chunks/lecon-FB4LLH63.js","./chunks/sound-ILNNXXEU.js"];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)));
+  // `cache: 'reload'` : chaque fichier est demandé au serveur, jamais lu dans le cache HTTP du navigateur (sinon une nouvelle version pourrait se retrouver avec d'anciens fichiers)
+  event.waitUntil(caches.open(CACHE).then((c) => Promise.all(PRECACHE.map((u) => c.add(new Request(u, { cache: 'reload' }))))));
   self.skipWaiting();
 });
 self.addEventListener('activate', (event) => {
